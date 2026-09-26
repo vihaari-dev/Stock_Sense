@@ -7,29 +7,35 @@ import { logger } from './utils/logger';
 import { errorHandler } from './middleware/errorHandler';
 import { notFound } from './middleware/notFound';
 
-// Route imports (stubs — feature routes added as each feature is built)
+// Route imports
 import healthRouter from './routes/health';
 import authRouter from './routes/auth';
+import productsRouter from './routes/products';
+import categoriesRouter from './routes/categories';
+import uomRouter from './routes/uom';
+
+// Register Sequelize model associations
+import './models/index';
 
 const app = express();
 
-// Trust proxy (needed when behind nginx/Railway/Render in prod)
+// Trust proxy
 app.set('trust proxy', 1);
 
-// CORS — only allow the configured client origin
+// CORS
 app.use(cors({
   origin: config.cors.origin,
-  credentials: true, // Required for HttpOnly cookie exchange
+  credentials: true,
 }));
 
 // Body parsing
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Cookie parser (refresh token arrives as HttpOnly cookie)
+// Cookie parser
 app.use(cookieParser());
 
-// HTTP request logging via morgan → pipes into winston
+// HTTP request logging
 app.use(morgan('combined', {
   stream: { write: (msg) => logger.http(msg.trim()) },
 }));
@@ -37,11 +43,21 @@ app.use(morgan('combined', {
 // Routes
 app.use('/api/v1/health', healthRouter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/products', productsRouter);
+app.use('/api/v1/categories', categoriesRouter);
+app.use('/api/v1/uom', uomRouter);
 
-// 404 catch-all — must come after all route mounts
+// 404 catch-all
 app.use(notFound);
 
-// Global error handler — must be last middleware
-app.use(errorHandler as (err: unknown, req: Request, res: Response, next: NextFunction) => void);
+// Global error handler
+app.use(
+  errorHandler as (
+    err: unknown,
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => void
+);
 
 export default app;

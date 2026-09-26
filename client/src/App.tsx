@@ -8,6 +8,8 @@ import { Signup } from './pages/auth/Signup';
 import { ForgotPassword } from './pages/auth/ForgotPassword';
 import { ResetPassword } from './pages/auth/ResetPassword';
 import { Dashboard } from './pages/Dashboard';
+import ProductsPage from './pages/ProductsPage';
+import './App.css';
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/products" element={<ProductsPage />} />
           </Route>
 
           {/* Fallback */}

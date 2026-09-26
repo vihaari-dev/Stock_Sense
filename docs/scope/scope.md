@@ -51,7 +51,7 @@ The source defines responsibilities more clearly than it defines exact permissio
 | 1 | Foundation and project setup | Foundation | planned |
 | 2 | Authentication and profile | Foundation | in-progress |
 | 3 | Dashboard and operational overview | Foundation | planned |
-| 4 | Product master data | Core capability | planned |
+| 4 | Product master data | Core capability | in-progress |
 | 5 | Product categories | Core capability | planned |
 | 6 | Warehouse management | Core capability | planned |
 | 7 | Location management | Core capability | planned |
@@ -89,10 +89,12 @@ Intent: give each role a clear operational summary of inventory state and pendin
 
 ## Core capability slices
 
-### 4. Product master data · planned · needs a decision
+### 4. Product master data · in-progress
 Intent: manage the product catalog and product master data needed for inventory operations, including SKU, category, UOM, reorder rules, and stock visibility by location.
 **Done when:** a product can be created, updated, searched by SKU or code, and tracked with the required product attributes, while leaving deeper product data decisions for architecture.
-- [ ] Design it (spec): /architect product master data
+- [x] Design it (spec): [0002-product-master-data.md](../specs/0002-product-master-data.md)
+- [ ] Build it: /develop product master data
+- [ ] Verify it: /check verify product master data
 
 ### 5. Product categories · planned · needs a decision
 Intent: organize products into categories so inventory can be grouped, filtered, and reported consistently.
