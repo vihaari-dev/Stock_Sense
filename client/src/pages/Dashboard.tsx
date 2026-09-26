@@ -126,6 +126,13 @@ export const Dashboard: React.FC = () => {
           >
             🏷️ Categories
           </Link>
+          <Link
+            to="/receipts"
+            className="dashboard__refresh-btn"
+            style={{ textDecoration: 'none' }}
+          >
+            📥 Receipts
+          </Link>
           <button
             className="dashboard__refresh-btn"
             onClick={() => refetch()}

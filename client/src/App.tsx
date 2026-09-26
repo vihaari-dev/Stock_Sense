@@ -12,6 +12,7 @@ import { ResetPassword } from './pages/auth/ResetPassword';
 // App Pages
 import { Dashboard } from './pages/Dashboard';
 import { CategoriesPage } from './pages/CategoriesPage';
+import { ReceiptsPage } from './pages/ReceiptsPage';
 import WarehouseList from './pages/warehouses/WarehouseList';
 import WarehouseForm from './pages/warehouses/WarehouseForm';
 
@@ -41,6 +42,7 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/categories" element={<CategoriesPage />} />
+              <Route path="/receipts" element={<ReceiptsPage />} />
               
               {/* Warehouse Routes */}
               <Route path="/warehouses" element={<WarehouseList />} />
