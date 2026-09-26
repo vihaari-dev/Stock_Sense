@@ -1,7 +1,7 @@
 /* ─── Dashboard page layout ────────────────────────────────────────────────── */
 
 .dashboard {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   background: #0d0f14;
   color: #e8eaf0;
   font-family: 'Inter', system-ui, sans-serif;
