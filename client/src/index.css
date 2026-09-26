@@ -1,5 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+:root {
+  color-scheme: dark;
+  --ss-color-canvas: #0d0f14;
+  --ss-color-surface: rgba(255, 255, 255, 0.04);
+  --ss-color-surface-raised: rgba(255, 255, 255, 0.06);
+  --ss-color-border: rgba(255, 255, 255, 0.07);
+  --ss-color-text: #e8eaf0;
+  --ss-color-heading: #f0f2fa;
+  --ss-color-muted: #7a7f96;
+  --ss-color-subtle: #585d75;
+  --ss-color-accent: #6366f1;
+  --ss-color-info: #38bdf8;
+  --ss-color-success: #14b8a6;
+  --ss-color-warning: #f59e0b;
+  --ss-color-danger: #ef4444;
+  --ss-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --ss-space-1: 0.25rem;
+  --ss-space-2: 0.5rem;
+  --ss-space-3: 0.75rem;
+  --ss-space-4: 1rem;
+  --ss-space-5: 1.25rem;
+  --ss-space-6: 1.5rem;
+  --ss-space-8: 2rem;
+  --ss-radius-control: 8px;
+  --ss-radius-surface: 12px;
+  --ss-shadow-raised: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --ss-motion-fast: 180ms ease;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -11,9 +40,9 @@ html, body {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #0d0f14;
-  color: #e8eaf0;
+  font-family: var(--ss-font-sans);
+  background: var(--ss-color-canvas);
+  color: var(--ss-color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -25,7 +54,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--ss-font-sans);
 }
 
 p {

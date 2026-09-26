@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { fetchReceipts, createReceipt, validateReceipt, addLine, updateLineQty } from '../api/receipts';
+import { fetchReceipts, createReceipt, validateReceipt } from '../api/receipts';
 import type { ReceiptDetail } from '../types/receipt';
 import './ReceiptsPage.css';
 
@@ -15,7 +15,7 @@ export const ReceiptsPage: React.FC = () => {
 
   const createMut = useMutation({
     mutationFn: createReceipt,
-    onSuccess: (newReceipt) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['receipts'] });
       // In a real app with proper master data, we wouldn't hardcode warehouse_id 1
       // but since we lack UI for it, we rely on the DB having some seeds or fail gracefully.
