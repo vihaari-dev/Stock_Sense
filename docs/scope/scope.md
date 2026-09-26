@@ -109,10 +109,13 @@ Intent: place inventory within the correct warehouse physical structure so stock
 **Done when:** locations belong to warehouses, can be named and coded, and support questions about what product is in stock, how much, and where it physically sits.
 - [ ] Design it (spec): /architect location management
 
-### 8. Stock engine and stock ledger · planned · needs a decision
+### 8. Stock engine and stock ledger · in-progress · docs/specs/0008-stock-engine-and-ledger/index.md
 Intent: preserve the central stock behavior that drives inventory correctness, including receipts, deliveries, transfers, and adjustments, with every movement recorded in an auditable ledger.
 **Done when:** the system defines the inventory rules for stock increases, decreases, location changes, and adjustments, and preserves the requirement that all stock changing events are logged and traceable.
-- [ ] Design it (spec): /architect stock engine and stock ledger
+- [x] Design it (spec): docs/specs/0008-stock-engine-and-ledger/index.md
+- [ ] Build it (code)
+- [ ] Verify it
+- [ ] Test it
 
 ### 9. Stock page and stock availability · planned · needs a decision
 Intent: provide a single stock view that shows product level availability, per unit cost, on hand quantity, free to use quantity, and the ability to update stock through a traceable flow.
