@@ -7,7 +7,7 @@ const apiClient = axios.create({
   withCredentials: true, // important for sending/receiving HttpOnly cookies
 });
 
-// We store the access token in memory
+// We store the access token in memory (never localStorage/sessionStorage)
 let currentAccessToken: string | null = null;
 
 export const setAccessToken = (token: string | null) => {
@@ -32,7 +32,7 @@ apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-    
+
     // If error is 401 and it's not the refresh endpoint itself
     if (
       error.response?.status === 401 &&
@@ -43,11 +43,11 @@ apiClient.interceptors.response.use(
       originalRequest._retry = true;
       try {
         const { data } = await axios.post<AuthResponse>('/api/v1/auth/refresh', {}, {
-          withCredentials: true // needed to send the refresh cookie
+          withCredentials: true, // needed to send the refresh cookie
         });
-        
+
         setAccessToken(data.data.accessToken);
-        
+
         // Update the failed request header and retry
         if (originalRequest.headers) {
           originalRequest.headers.Authorization = `Bearer ${data.data.accessToken}`;
@@ -55,7 +55,6 @@ apiClient.interceptors.response.use(
         return apiClient(originalRequest);
       } catch (refreshError) {
         setAccessToken(null);
-        // Force a logout/redirect loop event here if needed, or let context handle
         window.dispatchEvent(new Event('auth:unauthorized'));
         return Promise.reject(refreshError);
       }
