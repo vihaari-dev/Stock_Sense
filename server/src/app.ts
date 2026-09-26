@@ -9,6 +9,7 @@ import { notFound } from './middleware/notFound';
 
 // Route imports (stubs — feature routes added as each feature is built)
 import healthRouter from './routes/health';
+import authRouter from './routes/auth';
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use(morgan('combined', {
 
 // Routes
 app.use('/api/v1/health', healthRouter);
+app.use('/api/v1/auth', authRouter);
 
 // 404 catch-all — must come after all route mounts
 app.use(notFound);
