@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useAuth } from '../context/AuthContext';
 import { fetchDashboardKpis, type KpiPayload } from '../api/dashboard';
@@ -11,13 +12,14 @@ interface KpiCardConfig {
   icon: string;
   color: string;
   description: string;
+  link?: string;
 }
 
 const KPI_CARDS: KpiCardConfig[] = [
   { key: 'totalProducts',      label: 'Total Products',      icon: '📦', color: 'blue',   description: 'Active products in catalog'           },
   { key: 'lowStockItems',      label: 'Low Stock',           icon: '⚠️', color: 'amber',  description: 'Below reorder point, still in stock'  },
   { key: 'outOfStockItems',    label: 'Out of Stock',        icon: '🚨', color: 'red',    description: 'Zero units across all locations'      },
-  { key: 'pendingReceipts',    label: 'Pending Receipts',    icon: '📥', color: 'teal',   description: 'Draft or ready to receive'            },
+  { key: 'pendingReceipts',    label: 'Pending Receipts',    icon: '📥', color: 'teal',   description: 'Draft or ready to receive',          link: '/receipts'   },
   { key: 'pendingDeliveries',  label: 'Pending Deliveries',  icon: '📤', color: 'purple', description: 'Draft, waiting, or ready to ship'     },
   { key: 'scheduledTransfers', label: 'Scheduled Transfers', icon: '🔄', color: 'indigo', description: 'Internal movements in progress'       },
   { key: 'waitingOperations',  label: 'Waiting for Stock',   icon: '⏳', color: 'orange', description: 'Deliveries blocked on stock'          },
@@ -32,14 +34,24 @@ function KpiCard({ config, value }: { config: KpiCardConfig; value: number }) {
       config.key === 'waitingOperations') &&
     value > 0;
 
-  return (
-    <div className={`kpi-card kpi-card--${config.color}${isAlert ? ' kpi-card--alert' : ''}`}>
+  const content = (
+    <>
       <div className="kpi-card__icon" aria-hidden="true">{config.icon}</div>
       <div className="kpi-card__body">
         <span className="kpi-card__value">{value.toLocaleString()}</span>
         <span className="kpi-card__label">{config.label}</span>
         <span className="kpi-card__desc">{config.description}</span>
       </div>
+    </>
+  );
+
+  return config.link ? (
+    <Link to={config.link} className={`kpi-card kpi-card--${config.color}${isAlert ? ' kpi-card--alert' : ''}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+      {content}
+    </Link>
+  ) : (
+    <div className={`kpi-card kpi-card--${config.color}${isAlert ? ' kpi-card--alert' : ''}`}>
+      {content}
     </div>
   );
 }
@@ -143,13 +155,13 @@ export const Dashboard: React.FC = () => {
         <section className="dashboard__section" aria-label="Operational summary">
           <h2 className="dashboard__section-title">Operational Summary</h2>
           <div className="summary-grid">
-            <div className="summary-card">
+            <Link to="/receipts" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
               <span className="summary-card__icon">📥</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.pendingReceipts}</span>
                 <span className="summary-card__label">Receipts to Process</span>
               </div>
-            </div>
+            </Link>
             <div className="summary-card">
               <span className="summary-card__icon">📤</span>
               <div className="summary-card__body">
