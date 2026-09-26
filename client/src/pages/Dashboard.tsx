@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useAuth } from '../context/AuthContext';
-import { logout } from '../api/auth';
 import { fetchDashboardKpis, type KpiPayload } from '../api/dashboard';
 import './DashboardPage.css';
 
@@ -71,10 +69,8 @@ function ErrorBanner({ message }: { message: string }) {
   );
 }
 
-// ── Main page ─────────────────────────────────────────────────────────────────
-
 export const Dashboard: React.FC = () => {
-  const { user, logoutSuccess } = useAuth();
+  const { user } = useAuth();
   const now = new Date();
   const greeting =
     now.getHours() < 12 ? 'Good morning' : now.getHours() < 17 ? 'Good afternoon' : 'Good evening';
@@ -85,15 +81,6 @@ export const Dashboard: React.FC = () => {
     staleTime: 60_000,
     retry: 2,
   });
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      logoutSuccess();
-    } catch (e) {
-      console.error('Logout failed', e);
-    }
-  };
 
   return (
     <div className="dashboard">
@@ -119,20 +106,6 @@ export const Dashboard: React.FC = () => {
               day: 'numeric',
             })}
           </span>
-          <Link
-            to="/categories"
-            className="dashboard__refresh-btn"
-            style={{ textDecoration: 'none' }}
-          >
-            🏷️ Categories
-          </Link>
-          <Link
-            to="/receipts"
-            className="dashboard__refresh-btn"
-            style={{ textDecoration: 'none' }}
-          >
-            📥 Receipts
-          </Link>
           <button
             className="dashboard__refresh-btn"
             onClick={() => refetch()}
@@ -140,13 +113,6 @@ export const Dashboard: React.FC = () => {
             aria-label="Refresh dashboard data"
           >
             {isLoading ? '⟳' : '↻'} Refresh
-          </button>
-          <button
-            className="dashboard__logout-btn"
-            onClick={handleLogout}
-            aria-label="Logout"
-          >
-            ⏻ Logout
           </button>
         </div>
       </header>
