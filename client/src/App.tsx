@@ -15,6 +15,7 @@ import { CategoriesPage } from './pages/CategoriesPage';
 import { ReceiptsPage } from './pages/ReceiptsPage';
 import WarehouseList from './pages/warehouses/WarehouseList';
 import WarehouseForm from './pages/warehouses/WarehouseForm';
+import { ComingSoon } from './pages/ComingSoon';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +49,11 @@ function App() {
               <Route path="/warehouses" element={<WarehouseList />} />
               <Route path="/warehouses/new" element={<WarehouseForm />} />
               <Route path="/warehouses/:id/edit" element={<WarehouseForm />} />
+              
+              {/* Unbuilt Features / Placeholders */}
+              <Route path="/products" element={<ComingSoon />} />
+              <Route path="/deliveries" element={<ComingSoon />} />
+              <Route path="/transfers" element={<ComingSoon />} />
             </Route>
 
             {/* Fallback */}

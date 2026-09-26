@@ -16,13 +16,13 @@ interface KpiCardConfig {
 }
 
 const KPI_CARDS: KpiCardConfig[] = [
-  { key: 'totalProducts',      label: 'Total Products',      icon: '📦', color: 'blue',   description: 'Active products in catalog'           },
-  { key: 'lowStockItems',      label: 'Low Stock',           icon: '⚠️', color: 'amber',  description: 'Below reorder point, still in stock'  },
-  { key: 'outOfStockItems',    label: 'Out of Stock',        icon: '🚨', color: 'red',    description: 'Zero units across all locations'      },
-  { key: 'pendingReceipts',    label: 'Pending Receipts',    icon: '📥', color: 'teal',   description: 'Draft or ready to receive',          link: '/receipts'   },
-  { key: 'pendingDeliveries',  label: 'Pending Deliveries',  icon: '📤', color: 'purple', description: 'Draft, waiting, or ready to ship'     },
-  { key: 'scheduledTransfers', label: 'Scheduled Transfers', icon: '🔄', color: 'indigo', description: 'Internal movements in progress'       },
-  { key: 'waitingOperations',  label: 'Waiting for Stock',   icon: '⏳', color: 'orange', description: 'Deliveries blocked on stock'          },
+  { key: 'totalProducts',      label: 'Total Products',      icon: '📦', color: 'blue',   description: 'Active products in catalog',          link: '/products'   },
+  { key: 'lowStockItems',      label: 'Low Stock',           icon: '⚠️', color: 'amber',  description: 'Below reorder point, still in stock', link: '/products'   },
+  { key: 'outOfStockItems',    label: 'Out of Stock',        icon: '🚨', color: 'red',    description: 'Zero units across all locations',     link: '/products'   },
+  { key: 'pendingReceipts',    label: 'Pending Receipts',    icon: '📥', color: 'teal',   description: 'Draft or ready to receive',           link: '/receipts'   },
+  { key: 'pendingDeliveries',  label: 'Pending Deliveries',  icon: '📤', color: 'purple', description: 'Draft, waiting, or ready to ship',      link: '/deliveries' },
+  { key: 'scheduledTransfers', label: 'Scheduled Transfers', icon: '🔄', color: 'indigo', description: 'Internal movements in progress',      link: '/transfers'  },
+  { key: 'waitingOperations',  label: 'Waiting for Stock',   icon: '⏳', color: 'orange', description: 'Deliveries blocked on stock',           link: '/deliveries' },
 ];
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -162,14 +162,14 @@ export const Dashboard: React.FC = () => {
                 <span className="summary-card__label">Receipts to Process</span>
               </div>
             </Link>
-            <div className="summary-card">
+            <Link to="/deliveries" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
               <span className="summary-card__icon">📤</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.pendingDeliveries}</span>
                 <span className="summary-card__label">Deliveries to Dispatch</span>
               </div>
-            </div>
-            <div className="summary-card">
+            </Link>
+            <Link to="/deliveries" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
               <span className="summary-card__icon">⏳</span>
               <div className="summary-card__body">
                 <span
@@ -179,14 +179,14 @@ export const Dashboard: React.FC = () => {
                 </span>
                 <span className="summary-card__label">Waiting for Stock</span>
               </div>
-            </div>
-            <div className="summary-card">
+            </Link>
+            <Link to="/transfers" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
               <span className="summary-card__icon">🔄</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.scheduledTransfers}</span>
                 <span className="summary-card__label">Transfers Scheduled</span>
               </div>
-            </div>
+            </Link>
           </div>
         </section>
       )}
