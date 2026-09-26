@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useAuth } from '../context/AuthContext';
 import { logout } from '../api/auth';
@@ -118,6 +119,13 @@ export const Dashboard: React.FC = () => {
               day: 'numeric',
             })}
           </span>
+          <Link
+            to="/categories"
+            className="dashboard__refresh-btn"
+            style={{ textDecoration: 'none' }}
+          >
+            🏷️ Categories
+          </Link>
           <button
             className="dashboard__refresh-btn"
             onClick={() => refetch()}

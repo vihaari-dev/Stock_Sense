@@ -11,6 +11,7 @@ import { ResetPassword } from './pages/auth/ResetPassword';
 
 // App Pages
 import { Dashboard } from './pages/Dashboard';
+import { CategoriesPage } from './pages/CategoriesPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,6 +38,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/categories" element={<CategoriesPage />} />
             </Route>
 
             {/* Fallback */}
@@ -49,3 +51,4 @@ function App() {
 }
 
 export default App;
+
