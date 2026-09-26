@@ -12,6 +12,8 @@ import { ResetPassword } from './pages/auth/ResetPassword';
 // App Pages
 import { Dashboard } from './pages/Dashboard';
 import { CategoriesPage } from './pages/CategoriesPage';
+import WarehouseList from './pages/warehouses/WarehouseList';
+import WarehouseForm from './pages/warehouses/WarehouseForm';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +41,11 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/categories" element={<CategoriesPage />} />
+              
+              {/* Warehouse Routes */}
+              <Route path="/warehouses" element={<WarehouseList />} />
+              <Route path="/warehouses/new" element={<WarehouseForm />} />
+              <Route path="/warehouses/:id/edit" element={<WarehouseForm />} />
             </Route>
 
             {/* Fallback */}

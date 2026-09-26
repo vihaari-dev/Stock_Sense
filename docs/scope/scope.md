@@ -53,7 +53,7 @@ The source defines responsibilities more clearly than it defines exact permissio
 | 3 | Dashboard and operational overview | Foundation | planned |
 | 4 | Product master data | Core capability | planned |
 | 5 | Product categories | Core capability | planned |
-| 6 | Warehouse management | Core capability | planned |
+| 6 | Warehouse management | Core capability | in-progress |
 | 7 | Location management | Core capability | planned |
 | 8 | Stock engine and stock ledger | Core capability | planned |
 | 9 | Stock page and stock availability | Core capability | planned |
@@ -99,10 +99,17 @@ Intent: organize products into categories so inventory can be grouped, filtered,
 **Done when:** products can be assigned to categories, categories support filtering, and category based inventory filters work across the product and dashboard flows.
 - [ ] Design it (spec): /architect product categories
 
-### 6. Warehouse management · planned · needs a decision
+### 6. Warehouse management · in-progress · docs/specs/0004-warehouse-management.md
 Intent: support a multi warehouse model that treats each warehouse as a first class inventory concept and allows stock to be tracked across locations in the business.
 **Done when:** a warehouse can be created with name, short code, and address, and the system can distinguish stock and movement history across multiple warehouses.
-- [ ] Design it (spec): /architect warehouse management
+- [x] Design it (spec): docs/specs/0004-warehouse-management.md
+- [ ] Build it (code):
+  - Backend models and routes
+  - Frontend API and context
+  - Frontend UI components
+  - Routing integration
+- [ ] Verify it
+- [ ] Test it
 
 ### 7. Location management · planned · needs a decision
 Intent: place inventory within the correct warehouse physical structure so stock is location aware and material movement can be tracked accurately.
