@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="global-navbar">
       <div className="navbar-brand">
-        <span className="navbar-logo">📦</span>
+        <span className="navbar-logo" aria-hidden="true">SS</span>
         <span className="navbar-title">Stock Sense</span>
       </div>
       
@@ -28,25 +28,31 @@ export const Navbar: React.FC = () => {
           to="/dashboard" 
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
         >
-          📊 Dashboard
+          Dashboard
         </NavLink>
         <NavLink 
           to="/categories" 
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
         >
-          🏷️ Categories
+          Categories
         </NavLink>
         <NavLink 
           to="/warehouses" 
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
         >
-          🏢 Warehouses
+          Warehouses
+        </NavLink>
+        <NavLink
+          to="/locations"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          Locations
         </NavLink>
         <NavLink 
           to="/receipts" 
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
         >
-          📥 Receipts
+          Receipts
         </NavLink>
       </div>
 
@@ -55,7 +61,7 @@ export const Navbar: React.FC = () => {
           {user?.loginId} <span className="user-role">({user?.role.replace('_', ' ')})</span>
         </span>
         <button className="nav-logout-btn" onClick={handleLogout} aria-label="Logout">
-          ⏻
+          Sign out
         </button>
       </div>
     </nav>

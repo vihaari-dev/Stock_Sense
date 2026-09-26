@@ -9,20 +9,19 @@ import './DashboardPage.css';
 interface KpiCardConfig {
   key: keyof KpiPayload;
   label: string;
-  icon: string;
   color: string;
   description: string;
   link?: string;
 }
 
 const KPI_CARDS: KpiCardConfig[] = [
-  { key: 'totalProducts',      label: 'Total Products',      icon: '📦', color: 'blue',   description: 'Active products in catalog',          link: '/products'   },
-  { key: 'lowStockItems',      label: 'Low Stock',           icon: '⚠️', color: 'amber',  description: 'Below reorder point, still in stock', link: '/products'   },
-  { key: 'outOfStockItems',    label: 'Out of Stock',        icon: '🚨', color: 'red',    description: 'Zero units across all locations',     link: '/products'   },
-  { key: 'pendingReceipts',    label: 'Pending Receipts',    icon: '📥', color: 'teal',   description: 'Draft or ready to receive',           link: '/receipts'   },
-  { key: 'pendingDeliveries',  label: 'Pending Deliveries',  icon: '📤', color: 'purple', description: 'Draft, waiting, or ready to ship',      link: '/deliveries' },
-  { key: 'scheduledTransfers', label: 'Scheduled Transfers', icon: '🔄', color: 'indigo', description: 'Internal movements in progress',      link: '/transfers'  },
-  { key: 'waitingOperations',  label: 'Waiting for Stock',   icon: '⏳', color: 'orange', description: 'Deliveries blocked on stock',           link: '/deliveries' },
+  { key: 'totalProducts',      label: 'Total Products',      color: 'blue',   description: 'Active products in catalog',          link: '/products'   },
+  { key: 'lowStockItems',      label: 'Low Stock',           color: 'amber',  description: 'Below reorder point, still in stock', link: '/products'   },
+  { key: 'outOfStockItems',    label: 'Out of Stock',        color: 'red',    description: 'Zero units across all locations',     link: '/products'   },
+  { key: 'pendingReceipts',    label: 'Pending Receipts',    color: 'teal',   description: 'Draft or ready to receive',           link: '/receipts'   },
+  { key: 'pendingDeliveries',  label: 'Pending Deliveries',  color: 'purple', description: 'Draft, waiting, or ready to ship',      link: '/deliveries' },
+  { key: 'scheduledTransfers', label: 'Scheduled Transfers', color: 'indigo', description: 'Internal movements in progress',      link: '/transfers'  },
+  { key: 'waitingOperations',  label: 'Waiting for Stock',   color: 'orange', description: 'Deliveries blocked on stock',           link: '/deliveries' },
 ];
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -36,7 +35,7 @@ function KpiCard({ config, value }: { config: KpiCardConfig; value: number }) {
 
   const content = (
     <>
-      <div className="kpi-card__icon" aria-hidden="true">{config.icon}</div>
+      <div className="kpi-card__marker" aria-hidden="true" />
       <div className="kpi-card__body">
         <span className="kpi-card__value">{value.toLocaleString()}</span>
         <span className="kpi-card__label">{config.label}</span>
@@ -72,7 +71,7 @@ function SkeletonCard() {
 function ErrorBanner({ message }: { message: string }) {
   return (
     <div className="dashboard-error" role="alert">
-      <span className="dashboard-error__icon">⚠️</span>
+      <span className="dashboard-error__icon" aria-hidden="true" />
       <div>
         <strong>Could not load dashboard data</strong>
         <p>{message}</p>
@@ -100,7 +99,7 @@ export const Dashboard: React.FC = () => {
       <header className="dashboard__header">
         <div className="dashboard__header-text">
           <h1 className="dashboard__title">
-            <span className="dashboard__title-wave">📊</span> Operational Dashboard
+                 Operational Dashboard
           </h1>
           <p className="dashboard__subtitle">
             {greeting}{user?.loginId ? `, ${user.loginId}` : ''} — here's your inventory at a glance.
@@ -124,7 +123,7 @@ export const Dashboard: React.FC = () => {
             disabled={isLoading}
             aria-label="Refresh dashboard data"
           >
-            {isLoading ? '⟳' : '↻'} Refresh
+            {isLoading ? 'Refreshing' : 'Refresh'}
           </button>
         </div>
       </header>
@@ -156,21 +155,18 @@ export const Dashboard: React.FC = () => {
           <h2 className="dashboard__section-title">Operational Summary</h2>
           <div className="summary-grid">
             <Link to="/receipts" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <span className="summary-card__icon">📥</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.pendingReceipts}</span>
                 <span className="summary-card__label">Receipts to Process</span>
               </div>
             </Link>
             <Link to="/deliveries" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <span className="summary-card__icon">📤</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.pendingDeliveries}</span>
                 <span className="summary-card__label">Deliveries to Dispatch</span>
               </div>
             </Link>
             <Link to="/deliveries" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <span className="summary-card__icon">⏳</span>
               <div className="summary-card__body">
                 <span
                   className={`summary-card__stat${data.waitingOperations > 0 ? ' summary-card__stat--alert' : ''}`}
@@ -181,7 +177,6 @@ export const Dashboard: React.FC = () => {
               </div>
             </Link>
             <Link to="/transfers" className="summary-card" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <span className="summary-card__icon">🔄</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.scheduledTransfers}</span>
                 <span className="summary-card__label">Transfers Scheduled</span>

@@ -6,19 +6,18 @@ import './DashboardPage.css';
 interface KpiCardConfig {
   key: keyof KpiPayload;
   label: string;
-  icon: string;
   color: string;
   description: string;
 }
 
 const KPI_CARDS: KpiCardConfig[] = [
-  { key: 'totalProducts',      label: 'Total Products',         icon: '📦', color: 'blue',   description: 'Active products in catalog'       },
-  { key: 'lowStockItems',      label: 'Low Stock',              icon: '⚠️', color: 'amber',  description: 'Below reorder point, still in stock' },
-  { key: 'outOfStockItems',    label: 'Out of Stock',           icon: '🚨', color: 'red',    description: 'Zero units across all locations'  },
-  { key: 'pendingReceipts',    label: 'Pending Receipts',       icon: '📥', color: 'teal',   description: 'Draft or ready to receive'        },
-  { key: 'pendingDeliveries',  label: 'Pending Deliveries',     icon: '📤', color: 'purple', description: 'Draft, waiting, or ready to ship' },
-  { key: 'scheduledTransfers', label: 'Scheduled Transfers',    icon: '🔄', color: 'indigo', description: 'Internal movements in progress'   },
-  { key: 'waitingOperations',  label: 'Waiting for Stock',      icon: '⏳', color: 'orange', description: 'Deliveries blocked on stock'      },
+  { key: 'totalProducts',      label: 'Total Products',         color: 'blue',   description: 'Active products in catalog'       },
+  { key: 'lowStockItems',      label: 'Low Stock',              color: 'amber',  description: 'Below reorder point, still in stock' },
+  { key: 'outOfStockItems',    label: 'Out of Stock',           color: 'red',    description: 'Zero units across all locations'  },
+  { key: 'pendingReceipts',    label: 'Pending Receipts',       color: 'teal',   description: 'Draft or ready to receive'        },
+  { key: 'pendingDeliveries',  label: 'Pending Deliveries',     color: 'purple', description: 'Draft, waiting, or ready to ship' },
+  { key: 'scheduledTransfers', label: 'Scheduled Transfers',    color: 'indigo', description: 'Internal movements in progress'   },
+  { key: 'waitingOperations',  label: 'Waiting for Stock',      color: 'orange', description: 'Deliveries blocked on stock'      },
 ];
 
 // ── Sub-components ────────────────────────────────────────────────────────────
@@ -28,7 +27,7 @@ function KpiCard({ config, value }: { config: KpiCardConfig; value: number }) {
 
   return (
     <div className={`kpi-card kpi-card--${config.color}${isAlert ? ' kpi-card--alert' : ''}`}>
-      <div className="kpi-card__icon" aria-hidden="true">{config.icon}</div>
+      <div className="kpi-card__marker" aria-hidden="true" />
       <div className="kpi-card__body">
         <span className="kpi-card__value">{value.toLocaleString()}</span>
         <span className="kpi-card__label">{config.label}</span>
@@ -54,7 +53,7 @@ function SkeletonCard() {
 function ErrorBanner({ message }: { message: string }) {
   return (
     <div className="dashboard-error" role="alert">
-      <span className="dashboard-error__icon">⚠️</span>
+      <span className="dashboard-error__icon" aria-hidden="true" />
       <div>
         <strong>Could not load dashboard data</strong>
         <p>{message}</p>
@@ -82,7 +81,7 @@ export default function DashboardPage() {
       <header className="dashboard__header">
         <div className="dashboard__header-text">
           <h1 className="dashboard__title">
-            <span className="dashboard__title-wave">📊</span> Operational Dashboard
+            Operational Dashboard
           </h1>
           <p className="dashboard__subtitle">{greeting} — here's your inventory at a glance.</p>
         </div>
@@ -96,7 +95,7 @@ export default function DashboardPage() {
             disabled={isLoading}
             aria-label="Refresh dashboard data"
           >
-            {isLoading ? '⟳' : '↻'} Refresh
+            Refresh
           </button>
         </div>
       </header>
@@ -129,21 +128,18 @@ export default function DashboardPage() {
           <h2 className="dashboard__section-title">Operational Summary</h2>
           <div className="summary-grid">
             <div className="summary-card">
-              <span className="summary-card__icon">📥</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.pendingReceipts}</span>
                 <span className="summary-card__label">Receipts to Process</span>
               </div>
             </div>
             <div className="summary-card">
-              <span className="summary-card__icon">📤</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.pendingDeliveries}</span>
                 <span className="summary-card__label">Deliveries to Dispatch</span>
               </div>
             </div>
             <div className="summary-card">
-              <span className="summary-card__icon">⏳</span>
               <div className="summary-card__body">
                 <span className={`summary-card__stat${data.waitingOperations > 0 ? ' summary-card__stat--alert' : ''}`}>
                   {data.waitingOperations}
@@ -152,7 +148,6 @@ export default function DashboardPage() {
               </div>
             </div>
             <div className="summary-card">
-              <span className="summary-card__icon">🔄</span>
               <div className="summary-card__body">
                 <span className="summary-card__stat">{data.scheduledTransfers}</span>
                 <span className="summary-card__label">Transfers Scheduled</span>

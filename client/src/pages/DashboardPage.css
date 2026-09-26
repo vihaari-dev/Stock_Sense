@@ -2,9 +2,9 @@
 
 .dashboard {
   min-height: calc(100vh - 80px);
-  background: #0d0f14;
-  color: #e8eaf0;
-  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--ss-color-canvas);
+  color: var(--ss-color-text);
+  font-family: var(--ss-font-sans);
   padding: 2rem 2.5rem 4rem;
 }
 
@@ -18,36 +18,24 @@
   gap: 1rem;
   margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid var(--ss-color-border);
 }
 
 .dashboard__title {
   font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #f0f2fa;
+  color: var(--ss-color-heading);
   margin: 0 0 0.25rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.dashboard__title-wave {
-  animation: wave 2.5s ease-in-out infinite;
-  display: inline-block;
-}
-
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  20% { transform: rotate(-10deg); }
-  40% { transform: rotate(10deg); }
-  60% { transform: rotate(-5deg); }
-}
-
 .dashboard__subtitle {
   margin: 0;
   font-size: 0.9rem;
-  color: #7a7f96;
+  color: var(--ss-color-muted);
 }
 
 .dashboard__header-actions {
@@ -59,14 +47,14 @@
 
 .dashboard__timestamp {
   font-size: 0.8rem;
-  color: #585d75;
+  color: var(--ss-color-subtle);
   white-space: nowrap;
 }
 
 .dashboard__refresh-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #a0a4bc;
+  background: var(--ss-color-surface);
+  border: 1px solid var(--ss-color-border);
+  color: var(--ss-color-text);
   border-radius: 8px;
   padding: 0.45rem 1rem;
   font-size: 0.8rem;
@@ -77,9 +65,9 @@
 }
 
 .dashboard__refresh-btn:hover:not(:disabled) {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: rgba(99, 102, 241, 0.5);
-  color: #c7d2fe;
+  background: #e8eefc;
+  border-color: var(--ss-color-accent);
+  color: var(--ss-color-accent);
 }
 
 .dashboard__refresh-btn:disabled {
@@ -88,9 +76,9 @@
 }
 
 .dashboard__logout-btn {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #f87171;
+  background: #fff1ef;
+  border: 1px solid #e4b4ae;
+  color: var(--ss-color-danger);
   border-radius: 8px;
   padding: 0.45rem 1rem;
   font-size: 0.8rem;
@@ -103,7 +91,7 @@
 .dashboard__logout-btn:hover {
   background: rgba(239, 68, 68, 0.2);
   border-color: rgba(239, 68, 68, 0.6);
-  color: #fca5a5;
+  color: var(--ss-color-danger);
 }
 
 .dashboard__role-badge {
@@ -114,9 +102,9 @@
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  background: rgba(99, 102, 241, 0.15);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  color: #a5b4fc;
+  background: #e8eefc;
+  border: 1px solid #b8c8ed;
+  color: var(--ss-color-accent);
   border-radius: 20px;
   vertical-align: middle;
 }
@@ -132,7 +120,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #585d75;
+  color: var(--ss-color-subtle);
   margin: 0 0 1.25rem;
 }
 
@@ -147,9 +135,9 @@
 /* ─── KPI Card base ─────────────────────────────────────────────────────────── */
 
 .kpi-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
+  background: var(--ss-color-surface);
+  border: 1px solid var(--ss-color-border);
+  border-radius: var(--ss-radius-surface);
   padding: 1.4rem;
   display: flex;
   gap: 1rem;
@@ -171,7 +159,7 @@
 
 .kpi-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--ss-shadow-raised);
 }
 
 .kpi-card:hover::before {
@@ -188,23 +176,12 @@
 .kpi-card--indigo { --accent: 79, 70, 229;  }
 .kpi-card--orange { --accent: 249, 115, 22; }
 
-.kpi-card[class*="kpi-card--"] {
-  border-color: rgba(var(--accent), 0.2);
-}
-
-.kpi-card[class*="kpi-card--"]::before {
-  background: radial-gradient(ellipse at top left, rgba(var(--accent), 0.07) 0%, transparent 70%);
-}
-
-.kpi-card:hover[class*="kpi-card--"] {
-  border-color: rgba(var(--accent), 0.45);
-  box-shadow: 0 8px 30px rgba(var(--accent), 0.15);
-}
+.kpi-card[class*="kpi-card--"] { border-top: 3px solid rgb(var(--accent)); }
 
 /* Alert state (non-zero for negative indicators) */
 .kpi-card--alert {
-  border-color: rgba(var(--accent), 0.5) !important;
-  background: rgba(var(--accent), 0.06);
+  border-color: rgb(var(--accent)) !important;
+  background: var(--ss-color-surface);
 }
 
 .kpi-card--alert::before {
@@ -213,11 +190,13 @@
 
 /* ─── KPI card contents ─────────────────────────────────────────────────────── */
 
-.kpi-card__icon {
-  font-size: 1.6rem;
-  line-height: 1;
+.kpi-card__marker {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.35rem;
+  border-radius: 50%;
+  background: rgb(var(--accent));
   flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(var(--accent, 255,255,255), 0.3));
 }
 
 .kpi-card__body {
@@ -230,7 +209,7 @@
   font-size: 2rem;
   font-weight: 700;
   line-height: 1;
-  color: #f0f2fa;
+  color: var(--ss-color-heading);
   letter-spacing: -0.03em;
   transition: color 0.2s;
 }
@@ -242,14 +221,14 @@
 .kpi-card__label {
   font-size: 0.82rem;
   font-weight: 600;
-  color: #9ca3af;
+  color: var(--ss-color-text);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .kpi-card__desc {
   font-size: 0.72rem;
-  color: #4b5060;
+  color: var(--ss-color-muted);
   margin-top: 0.1rem;
   line-height: 1.4;
 }
@@ -257,27 +236,12 @@
 /* ─── Skeleton loading ───────────────────────────────────────────────────────── */
 
 .kpi-card--skeleton {
-  border-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: var(--ss-color-border) !important;
   cursor: default;
   pointer-events: none;
 }
 
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.05) 25%,
-    rgba(255,255,255,0.10) 50%,
-    rgba(255,255,255,0.05) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.6s infinite;
-  border-radius: 6px;
-}
-
-@keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+.skeleton { background: var(--ss-color-surface-raised); border-radius: 6px; }
 
 .skeleton--icon  { width: 2rem;  height: 2rem;  border-radius: 8px; flex-shrink: 0; }
 .skeleton--value { width: 4rem;  height: 2rem;  margin-bottom: 0.4rem; }
@@ -290,8 +254,8 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  background: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: #fff1ef;
+  border: 1px solid #e4b4ae;
   border-radius: 12px;
   padding: 1.1rem 1.4rem;
   margin-bottom: 2rem;
@@ -300,22 +264,18 @@
   animation: slideIn 0.25s ease;
 }
 
-.dashboard-error__icon {
-  font-size: 1.25rem;
-  flex-shrink: 0;
-  margin-top: 0.05rem;
-}
+.dashboard-error__icon { width: 0.55rem; height: 0.55rem; margin-top: 0.35rem; border-radius: 50%; background: var(--ss-color-danger); flex-shrink: 0; }
 
 .dashboard-error strong {
   display: block;
-  color: #fecaca;
+  color: var(--ss-color-heading);
   margin-bottom: 0.2rem;
   font-size: 0.92rem;
 }
 
 .dashboard-error p {
   margin: 0;
-  color: #f87171;
+  color: var(--ss-color-danger);
   font-size: 0.8rem;
 }
 
@@ -333,8 +293,8 @@
 }
 
 .summary-card {
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--ss-color-surface);
+  border: 1px solid var(--ss-color-border);
   border-radius: 12px;
   padding: 1.2rem;
   display: flex;
@@ -344,13 +304,8 @@
 }
 
 .summary-card:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--ss-color-surface-raised);
   transform: translateY(-2px);
-}
-
-.summary-card__icon {
-  font-size: 1.4rem;
-  flex-shrink: 0;
 }
 
 .summary-card__body {
@@ -361,18 +316,18 @@
 .summary-card__stat {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #f0f2fa;
+  color: var(--ss-color-heading);
   letter-spacing: -0.03em;
   line-height: 1;
 }
 
 .summary-card__stat--alert {
-  color: #f59e0b;
+  color: var(--ss-color-warning);
 }
 
 .summary-card__label {
   font-size: 0.75rem;
-  color: #585d75;
+  color: var(--ss-color-subtle);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 0.25rem;
