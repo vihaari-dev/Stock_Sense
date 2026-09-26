@@ -12,6 +12,8 @@ import { ResetPassword } from './pages/auth/ResetPassword';
 // App Pages
 import { Dashboard } from './pages/Dashboard';
 import { CategoriesPage } from './pages/CategoriesPage';
+import { ReceiptsPage } from './pages/ReceiptsPage';
+import { ComingSoon } from './pages/ComingSoon';
 import WarehouseList from './pages/warehouses/WarehouseList';
 import WarehouseForm from './pages/warehouses/WarehouseForm';
 import DeliveryList from './pages/deliveries/DeliveryList';
@@ -43,16 +45,21 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/categories" element={<CategoriesPage />} />
-              
+              <Route path="/receipts" element={<ReceiptsPage />} />
+
               {/* Warehouse Routes */}
               <Route path="/warehouses" element={<WarehouseList />} />
               <Route path="/warehouses/new" element={<WarehouseForm />} />
               <Route path="/warehouses/:id/edit" element={<WarehouseForm />} />
-              
+
               {/* Delivery Routes */}
               <Route path="/deliveries" element={<DeliveryList />} />
               <Route path="/deliveries/new" element={<DeliveryForm />} />
               <Route path="/deliveries/:id" element={<DeliveryForm />} />
+
+              {/* Unbuilt Features / Placeholders */}
+              <Route path="/products" element={<ComingSoon />} />
+              <Route path="/transfers" element={<ComingSoon />} />
             </Route>
 
             {/* Fallback */}
@@ -65,4 +72,3 @@ function App() {
 }
 
 export default App;
-
