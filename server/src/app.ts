@@ -13,6 +13,7 @@ import authRouter from './routes/auth';
 import dashboardRouter from './routes/dashboard';
 import categoriesRouter from './routes/categories';
 import warehousesRouter from './routes/warehouses';
+import deliveriesRouter from './routes/deliveries';
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/dashboard', dashboardRouter);
 app.use('/api/v1/categories', categoriesRouter);
 app.use('/api/v1/warehouses', warehousesRouter);
+app.use('/api/v1/deliveries', deliveriesRouter);
 
 // 404 catch-all — must come after all route mounts
 app.use(notFound);

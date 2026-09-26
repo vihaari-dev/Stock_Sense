@@ -136,10 +136,13 @@ Intent: support the incoming goods workflow from document creation through valid
 **Done when:** an inventory manager can create a receipt, add supplier or contact details, add products, enter quantities, validate the document, and complete it so stock increases appropriately while the operation remains traceable.
 - [ ] Design it (spec): /architect receipts
 
-### 11. Delivery orders · planned · needs a decision
+### 11. Delivery orders · in-progress · docs/specs/0011-delivery-orders/index.md
 Intent: support the outgoing goods workflow from document creation through picking, packing, validation, and completion, with stock decreasing only at completion and never in draft or waiting states.
 **Done when:** a delivery can be created, searched by reference or contact, grouped by status in a Kanban view, validated, and completed without causing invalid negative inventory while waiting deliveries remain clearly visible.
-- [ ] Design it (spec): /architect delivery orders
+- [x] Design it (spec): docs/specs/0011-delivery-orders/index.md
+- [ ] Build it (code)
+- [ ] Verify it
+- [ ] Test it
 
 ### 12. Internal transfers · planned · needs a decision
 Intent: support stock movements between source and destination within the business so location transfers change where inventory sits without changing total stock quantity.
