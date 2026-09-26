@@ -14,6 +14,7 @@ import { Dashboard } from './pages/Dashboard';
 import { CategoriesPage } from './pages/CategoriesPage';
 import WarehouseList from './pages/warehouses/WarehouseList';
 import WarehouseForm from './pages/warehouses/WarehouseForm';
+import { LocationsPage } from './pages/LocationsPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,11 +42,10 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/categories" element={<CategoriesPage />} />
-              
-              {/* Warehouse Routes */}
               <Route path="/warehouses" element={<WarehouseList />} />
               <Route path="/warehouses/new" element={<WarehouseForm />} />
               <Route path="/warehouses/:id/edit" element={<WarehouseForm />} />
+              <Route path="/locations" element={<LocationsPage />} />
             </Route>
 
             {/* Fallback */}
