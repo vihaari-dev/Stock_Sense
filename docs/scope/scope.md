@@ -49,7 +49,7 @@ The source defines responsibilities more clearly than it defines exact permissio
 | # | Feature | Phase | Status |
 |---|---------|-------|--------|
 | 1 | Foundation and project setup | Foundation | planned |
-| 2 | Authentication and profile | Foundation | planned |
+| 2 | Authentication and profile | Foundation | in-progress |
 | 3 | Dashboard and operational overview | Foundation | planned |
 | 4 | Product master data | Core capability | planned |
 | 5 | Product categories | Core capability | planned |
@@ -74,10 +74,13 @@ Intent: establish the project baseline, shared working conventions, and product 
 **Done when:** the team has a clear product baseline, a recognized scope boundary, and a shared understanding of the foundation risks that need later design.
 - [ ] Design it (spec): /architect foundation and project setup
 
-### 2. Authentication and profile · planned · needs a decision
+### 2. Authentication and profile · in-progress · docs/specs/0001-foundation-architecture/0001-auth-design.md
 Intent: provide secure access for the two user roles, protect inventory operations, and support the required sign up, login, logout, and password reset flows.
 **Done when:** users can sign up, log in, reset a password with OTP, view profile, and be redirected to the dashboard after authentication, with invalid credentials and reset errors surfaced clearly.
-- [ ] Design it (spec): /architect authentication and profile
+- [x] Design it (spec): docs/specs/0001-foundation-architecture/0001-auth-design.md
+- [x] Build it (code): server/src/routes/auth.ts
+- [ ] Verify it
+- [ ] Test it
 
 ### 3. Dashboard and operational overview · planned · needs a decision
 Intent: give each role a clear operational summary of inventory state and pending work, using a single dashboard that surfaces key inventory and operational metrics.
