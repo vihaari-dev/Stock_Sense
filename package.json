@@ -1,0 +1,11 @@
+{
+  "name": "stocksense",
+  "private": true,
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "migrate": "npm run migrate --prefix server",
+    "seed": "npm run seed --prefix server",
+    "typecheck": "npm run typecheck --prefix server"
+  }
+}
