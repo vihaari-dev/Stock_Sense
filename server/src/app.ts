@@ -12,6 +12,7 @@ import healthRouter from './routes/health';
 import authRouter from './routes/auth';
 import dashboardRouter from './routes/dashboard';
 import categoriesRouter from './routes/categories';
+import locationsRouter from './routes/locations';
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/api/v1/health', healthRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/dashboard', dashboardRouter);
 app.use('/api/v1/categories', categoriesRouter);
+app.use('/api/v1/locations', locationsRouter);
 
 // 404 catch-all — must come after all route mounts
 app.use(notFound);

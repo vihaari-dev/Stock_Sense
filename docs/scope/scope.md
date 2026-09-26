@@ -54,7 +54,7 @@ The source defines responsibilities more clearly than it defines exact permissio
 | 4 | Product master data | Core capability | planned |
 | 5 | Product categories | Core capability | planned |
 | 6 | Warehouse management | Core capability | planned |
-| 7 | Location management | Core capability | planned |
+| 7 | Location management | Core capability | in-progress |
 | 8 | Stock engine and stock ledger | Core capability | planned |
 | 9 | Stock page and stock availability | Core capability | planned |
 | 10 | Receipts | Operational workflow | planned |
@@ -104,10 +104,17 @@ Intent: support a multi warehouse model that treats each warehouse as a first cl
 **Done when:** a warehouse can be created with name, short code, and address, and the system can distinguish stock and movement history across multiple warehouses.
 - [ ] Design it (spec): /architect warehouse management
 
-### 7. Location management · planned · needs a decision
+### 7. Location management · in-progress
 Intent: place inventory within the correct warehouse physical structure so stock is location aware and material movement can be tracked accurately.
 **Done when:** locations belong to warehouses, can be named and coded, and support questions about what product is in stock, how much, and where it physically sits.
-- [ ] Design it (spec): /architect location management
+- [x] Design it (spec): [0003](../specs/0003-location-management.md)
+- [ ] Build it: /develop location management
+	- [ ] Build the global location list and navigation: AC-1, AC-2, AC-8
+	- [ ] Add stock details and manager create or edit flows: AC-3, AC-4, AC-5
+	- [ ] Enforce availability and safe deactivation: AC-6, AC-7
+- [ ] Verify it: /check verify location management
+- [ ] Test it: /test location management
+Spec [0003](../specs/0003-location-management.md)
 
 ### 8. Stock engine and stock ledger · planned · needs a decision
 Intent: preserve the central stock behavior that drives inventory correctness, including receipts, deliveries, transfers, and adjustments, with every movement recorded in an auditable ledger.
