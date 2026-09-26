@@ -1,0 +1,143 @@
+{
+  "version": 3,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-09-25T17:02:02.693Z",
+      "updatedAt": "2026-09-25T17:02:02.693Z"
+    },
+    "database-schema-designer": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
+      "skillPath": "skills/database-schema-designer/SKILL.md",
+      "skillFolderHash": "aaedacc8d3da73b0bbc02f75dc22d2854371c3dd",
+      "installedAt": "2026-09-25T17:14:42.730Z",
+      "updatedAt": "2026-09-25T17:14:42.730Z"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "d79e2a5bb4df4a386c2adcdd9ab8709bba28c3f6",
+      "pluginName": "example-skills",
+      "installedAt": "2026-09-25T17:48:03.380Z",
+      "updatedAt": "2026-09-25T17:48:03.380Z"
+    },
+    "architect": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/architect/SKILL.md",
+      "skillFolderHash": "b6dca29ce92b4ba7a579d33c4c649b4126732268",
+      "installedAt": "2026-09-25T18:31:10.249Z",
+      "updatedAt": "2026-09-25T18:31:10.249Z"
+    },
+    "audit": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/audit/SKILL.md",
+      "skillFolderHash": "4210cb43f00e2b700dbdc9ee58525a469083144e",
+      "installedAt": "2026-09-25T18:31:10.257Z",
+      "updatedAt": "2026-09-25T18:31:10.257Z"
+    },
+    "check": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/check/SKILL.md",
+      "skillFolderHash": "35188d0d3c23bc9e1554091d600feeb136cfdbb0",
+      "installedAt": "2026-09-25T18:31:10.260Z",
+      "updatedAt": "2026-09-25T18:31:10.260Z"
+    },
+    "debug": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/debug/SKILL.md",
+      "skillFolderHash": "672b62001b8692431c95111fcabb2a38a2984c68",
+      "installedAt": "2026-09-25T18:31:10.265Z",
+      "updatedAt": "2026-09-25T18:31:10.265Z"
+    },
+    "develop": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/develop/SKILL.md",
+      "skillFolderHash": "1da402b53f96058ce2a31992b94b1130aec34c60",
+      "installedAt": "2026-09-25T18:31:10.267Z",
+      "updatedAt": "2026-09-25T18:31:10.267Z"
+    },
+    "document": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/document/SKILL.md",
+      "skillFolderHash": "7f2f5263eb3e09853fd2130c435d0d2ee278a7f0",
+      "installedAt": "2026-09-25T18:31:10.273Z",
+      "updatedAt": "2026-09-25T18:31:10.273Z"
+    },
+    "scope": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/scope/SKILL.md",
+      "skillFolderHash": "5d5fe1c75ba52fe8422f7acaf6bbcfb1ad7a72a0",
+      "installedAt": "2026-09-25T18:31:10.276Z",
+      "updatedAt": "2026-09-25T18:31:10.276Z"
+    },
+    "sync": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/sync/SKILL.md",
+      "skillFolderHash": "3836d2baaac7b6883be87685d5fb815ccf813557",
+      "installedAt": "2026-09-25T18:31:10.279Z",
+      "updatedAt": "2026-09-25T18:31:10.279Z"
+    },
+    "test": {
+      "source": "JavaScript-Mastery-Pro/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/JavaScript-Mastery-Pro/skills.git",
+      "skillPath": "skills/test/SKILL.md",
+      "skillFolderHash": "152cd0d4cd17b0a0a763a34af0b001b54404a918",
+      "installedAt": "2026-09-25T18:31:10.284Z",
+      "updatedAt": "2026-09-25T18:31:10.284Z"
+    },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/pbakaus/impeccable.git",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "skillFolderHash": "01fe78e7bc253016bfc30a3d12036bbf90f1c1bc",
+      "installedAt": "2026-09-26T02:05:00.119Z",
+      "updatedAt": "2026-09-26T02:05:00.119Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed",
+    "droid",
+    "kilo"
+  ]
+}
