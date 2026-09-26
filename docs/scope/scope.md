@@ -138,10 +138,13 @@ Intent: provide a single stock view that shows product level availability, per u
 
 ## Operational workflow slices
 
-### 10. Receipts · planned · needs a decision
+### 10. Receipts · in-progress · docs/specs/0010-receipts/index.md
 Intent: support the incoming goods workflow from document creation through validation and completion, with automatic stock impact only after the receipt is completed and a traceable ledger movement is recorded.
 **Done when:** an inventory manager can create a receipt, add supplier or contact details, add products, enter quantities, validate the document, and complete it so stock increases appropriately while the operation remains traceable.
-- [ ] Design it (spec): /architect receipts
+- [x] Design it (spec): docs/specs/0010-receipts/index.md
+- [ ] Build it (code)
+- [ ] Verify it
+- [ ] Test it
 
 ### 11. Delivery orders · planned · needs a decision
 Intent: support the outgoing goods workflow from document creation through picking, packing, validation, and completion, with stock decreasing only at completion and never in draft or waiting states.
